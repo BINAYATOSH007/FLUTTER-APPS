@@ -1,6 +1,6 @@
 # micard_and_dice
 
-A new Flutter project.
+Flutter project.
 
 ## Getting Started
 
