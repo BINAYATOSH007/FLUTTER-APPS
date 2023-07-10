@@ -1,6 +1,6 @@
-# micard_and_dice
+# quiz
 
-Flutter project.
+A  Flutter project.
 
 ## Getting Started
 
