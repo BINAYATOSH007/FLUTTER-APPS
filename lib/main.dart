@@ -1,144 +1,91 @@
-import 'package:flutter/material.dart';
 
-void main(){
- runApp(MyApp());
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+void main() {
+  runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.black87,
-        body: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                CircleAvatar(
-                  radius: 50.0,
-                  backgroundImage: AssetImage('images/bin.jpg'),
-                ),
-                Text(
-                  'Binayatosh Panigrahi',
-                  style: TextStyle(
-                    fontFamily: 'Pacifico',
-                    fontSize: 20.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'FLUTTER DEVELOPER',
-                  style: TextStyle(
-                    fontFamily: 'KellySlab',
-                    fontSize: 20.0,
-                    letterSpacing: 2.6,
-                    color: Colors.tealAccent,
-                    fontWeight: FontWeight.bold,
+      title: 'Flutter ',
+      theme: ThemeData(
 
-                  ),
-                ),
-                SizedBox(
-                 height: 30.0,
-                 width: 150.0,
-                 child: Divider(
-                   color: Colors.white,
-                 ),
-                ),
-                Card(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
 
-                    color: Colors.white,
-                    margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
-                    child: ListTile(
-                      leading: Icon(
-                          Icons.phone,
-                          color: Colors.lightBlueAccent
-                      ),
-                      title: Text(
-                        '+7008011232',
-                        style: TextStyle(
-                          fontFamily: 'Kalam',
-                          fontSize: 15.0,
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
 
 
 
-                        ),
-                      ),
-                    )
-                ),
-                Card(
+  final String title;
 
-                  color: Colors.white,
-                  margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
-                  child: ListTile(
-                    leading: Icon(
-                        Icons.mail,
-                        color: Colors.lightBlueAccent
-                    ),
-                    title: Text(
-                      '2041016089.binayatoshpanigrahi@gmail.com',
-                      style: TextStyle(
-                        fontFamily: 'Kalam',
-                        fontSize: 14.0,
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
 
+class _MyHomePageState extends State<MyHomePage> {
+  final ImagePicker _picker = ImagePicker();
+  File? _image;
 
+  chooseImages() async{
+    final XFile? image = await _picker.pickImage(
+        source: ImageSource.gallery);
+    if(_image!=null){
+      setState(() {
+        _image=File(image!.path);
+      });
 
-                      ),
-                    ),
-                  )
-                ),
+    }
+  }
+  captureImages() async {
+    final XFile? image = await _picker.pickImage(
+        source: ImageSource.camera);
+    if (_image != null) {
+      setState(() {
+        _image = File(image!.path);
+      });
+    }
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
 
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
 
+        title: Text(widget.title),
+      ),
+      body: Center(
 
-                 Card(
-                  color: Colors.white,
-                  margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
-                  child: ListTile(
-                    leading: Icon(
-                        Icons.home,
-                        color: Colors.lightBlueAccent
-                    ),
-                    title:Text(
-                      'kanan vihar ph-2,Patia,Bhubaneswar,odisha',
-                      style: TextStyle(
-                        fontFamily: 'Kalam',
-                        fontSize: 14.0,
+        child: Column(
 
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _image != null?Image.file(_image !):const Icon(Icons.image,size: 150,),
+            ElevatedButton(onPressed: (){
+              chooseImages();
+            },onLongPress: (){
+              captureImages();
+            }, child: const Text("choose/CAPTURE"))
 
-
-                      ),
-                    ),
-                  )
-
-                ),
-                Card(
-                    color: Colors.white,
-                    margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 25.0),
-                    child: ListTile(
-                      leading: Icon(
-                          Icons.school,
-                          color: Colors.lightBlueAccent
-                      ),
-                      title:Text(
-                        'SOA UNIVERSITY',
-                        style: TextStyle(
-                          fontFamily: 'Kalam',
-                          fontSize: 15.0,
-
-
-
-                        ),
-                      ),
-                    )
-
-                ),
-
-
-
-
-      ],
-    ),
-            )
-    ));
-
+          ],
+        ),
+      ),
+     // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }

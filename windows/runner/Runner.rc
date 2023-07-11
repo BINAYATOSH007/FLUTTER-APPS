@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "micard_and_dice" "\0"
+            VALUE "FileDescription", "imagepickerflut" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "micard_and_dice" "\0"
+            VALUE "InternalName", "imagepickerflut" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "micard_and_dice.exe" "\0"
-            VALUE "ProductName", "micard_and_dice" "\0"
+            VALUE "OriginalFilename", "imagepickerflut.exe" "\0"
+            VALUE "ProductName", "imagepickerflut" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

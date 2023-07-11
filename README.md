@@ -1,6 +1,6 @@
-# micard_and_dice
+# imagepickerflut
 
-Flutter project.
+A new Flutter project.
 
 ## Getting Started
 

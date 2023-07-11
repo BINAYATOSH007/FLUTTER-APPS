@@ -1,6 +1,6 @@
 {
-    "name": "micard_and_dice",
-    "short_name": "micard_and_dice",
+    "name": "imagepickerflut",
+    "short_name": "imagepickerflut",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
