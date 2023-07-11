@@ -1,6 +1,6 @@
 # micard
 
-Flutter project:my journey of flutter development starts from here,you can find all my projects in the branch .
+Flutter project:my journey of flutter development starts from here,you can find all my projects in the branch .In the main you find me and my details through a Icard app.
 
 ## Getting Started
 
