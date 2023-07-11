@@ -1,6 +1,6 @@
 # micard
 
-Flutter project.
+Flutter project:my journey of flutter development starts from here,you can find all my projects in the branch .
 
 ## Getting Started
 
