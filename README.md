@@ -1,4 +1,4 @@
-# micard_and_dice
+# micard
 
 Flutter project.
 
